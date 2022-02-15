@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
-import { Container } from "./Container.js";
-import { CustomDragLayer } from "./CustomDragLayer.jsx";
+import Container from "./Container.js";
+import CustomDragLayer from "./CustomDragLayer.js";
 export default function Desktop(props) {
   const [snapToGridAfterDrop, setSnapToGridAfterDrop] = useState(false);
   const [snapToGridWhileDragging, setSnapToGridWhileDragging] = useState(false);

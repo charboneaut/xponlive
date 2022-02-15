@@ -1,4 +1,4 @@
-import { memo, useEffect } from "react";
+import { useEffect } from "react";
 import { useDrag } from "react-dnd";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import BaseWindow from "../baseWindow/BaseWindow.js";
@@ -16,7 +16,7 @@ function getStyles(left, top, isDragging) {
     height: isDragging ? 0 : "",
   };
 }
-export const DraggableBox = memo(function DraggableBox(props) {
+export default function DraggableBox(props) {
   const { id, title, left, top } = props;
   const [{ isDragging }, drag, preview] = useDrag(
     () => ({
@@ -49,4 +49,4 @@ export const DraggableBox = memo(function DraggableBox(props) {
       minBox={props.minBox}
     />
   );
-});
+}

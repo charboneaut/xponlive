@@ -1,5 +1,5 @@
 import { useDragLayer } from "react-dnd";
-import { BoxDragPreview } from "./BoxDragPreview.jsx";
+import { BoxDragPreview } from "./BoxDragPreview.js";
 import { snapToGrid } from "./snapToGrid.js";
 const layerStyles = {
   position: "fixed",
@@ -30,7 +30,7 @@ function getItemStyles(initialOffset, currentOffset, isSnapToGrid) {
     WebkitTransform: transform,
   };
 }
-export const CustomDragLayer = (props) => {
+export default function CustomDragLayer(props) {
   const { itemType, isDragging, item, initialOffset, currentOffset } =
     useDragLayer((monitor) => ({
       item: monitor.getItem(),
@@ -39,9 +39,6 @@ export const CustomDragLayer = (props) => {
       currentOffset: monitor.getSourceClientOffset(),
       isDragging: monitor.isDragging(),
     }));
-  function renderItem() {
-    return <BoxDragPreview title={item} />;
-  }
   if (!isDragging) {
     return null;
   }
@@ -50,8 +47,8 @@ export const CustomDragLayer = (props) => {
       <div
         style={getItemStyles(initialOffset, currentOffset, props.snapToGrid)}
       >
-        {renderItem()}
+        <BoxDragPreview title={item} />
       </div>
     </div>
   );
-};
+}

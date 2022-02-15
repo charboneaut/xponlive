@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useDrop } from "react-dnd";
-import { DraggableBox } from "./DraggableBox.jsx";
+import DraggableBox from "./DraggableBox.js";
 import { snapToGrid as doSnapToGrid } from "./snapToGrid.js";
 import update from "immutability-helper";
 const styles = {
@@ -9,7 +9,7 @@ const styles = {
   border: "1px solid black",
   position: "relative",
 };
-export const Container = (props, { snapToGrid }) => {
+export default function Container(props, { snapToGrid }) {
   const moveBox = useCallback(
     (id, left, top) => {
       props.setWindows(
@@ -54,4 +54,4 @@ export const Container = (props, { snapToGrid }) => {
       ))}
     </div>
   );
-};
+}
