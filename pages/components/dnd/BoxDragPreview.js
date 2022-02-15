@@ -1,8 +1,10 @@
 import BaseWindowPreview from "../baseWindow/BaseWindowPreview.js";
-export default function BoxDragPreview(props) {
+function BoxDragPreview(props) {
   return (
     <div>
       <BaseWindowPreview preview box={props.title} />
     </div>
   );
 }
+
+export default BoxDragPreview;
