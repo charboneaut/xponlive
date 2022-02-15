@@ -1,6 +1,5 @@
 import { memo, useEffect } from "react";
 import { useDrag } from "react-dnd";
-import { ItemTypes } from "./Itemtypes.js";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import BaseWindow from "../baseWindow/BaseWindow.js";
 
@@ -21,7 +20,7 @@ export const DraggableBox = memo(function DraggableBox(props) {
   const { id, title, left, top } = props;
   const [{ isDragging }, drag, preview] = useDrag(
     () => ({
-      type: ItemTypes.BOX,
+      type: "box",
       item: { id, left, top, title },
       collect: (monitor) => ({
         isDragging: monitor.isDragging(),

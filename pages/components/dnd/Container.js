@@ -1,6 +1,5 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useDrop } from "react-dnd";
-import { ItemTypes } from "./Itemtypes.js";
 import { DraggableBox } from "./DraggableBox.jsx";
 import { snapToGrid as doSnapToGrid } from "./snapToGrid.js";
 import update from "immutability-helper";
@@ -25,7 +24,7 @@ export const Container = (props, { snapToGrid }) => {
   );
   const [, drop] = useDrop(
     () => ({
-      accept: ItemTypes.BOX,
+      accept: "box",
       drop(item, monitor) {
         const delta = monitor.getDifferenceFromInitialOffset();
         let left = Math.round(item.left + delta.x);
