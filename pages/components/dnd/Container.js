@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useDrop } from "react-dnd";
 import DraggableBox from "./DraggableBox.js";
-import { snapToGrid as doSnapToGrid } from "./snapToGrid.js";
+import snapToGrid from "./snapToGrid.js";
 import update from "immutability-helper";
 const styles = {
   width: "100vw",
@@ -30,7 +30,7 @@ export default function Container(props, { snapToGrid }) {
         let left = Math.round(item.left + delta.x);
         let top = Math.round(item.top + delta.y);
         if (snapToGrid) {
-          [left, top] = doSnapToGrid(left, top);
+          [left, top] = snapToGrid(left, top);
         }
         moveBox(item.id, left, top);
         return undefined;
