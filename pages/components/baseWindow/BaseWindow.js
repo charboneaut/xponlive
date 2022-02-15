@@ -1,4 +1,4 @@
-import { WINDOW_TYPES } from "../../helpers/windowTypes";
+import WINDOW_TYPES from "../../helpers/windowTypes";
 import styles from "./BaseWindow.module.css";
 
 export default function BaseWindow(props) {
@@ -26,7 +26,7 @@ export default function BaseWindow(props) {
             newTasks[task].selected = false;
           }
         }
-        for (const window of WINDOW_TYPES) {
+        for (const window of WINDOW_TYPES()) {
           try {
             newWindows[window].selected = false;
           } catch (err) {

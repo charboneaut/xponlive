@@ -4,13 +4,13 @@ import Taskbar from "./components/taskbar/Taskbar";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Desktop from "./components/dnd/Desktop.js";
-import { WINDOW_TYPES } from "./helpers/windowTypes";
+import WINDOW_TYPES from "./helpers/windowTypes";
 
 export default function Home() {
   let demoWindows = {};
   let demoTasks = [];
   let totalLeft = 50;
-  for (const item of WINDOW_TYPES) {
+  for (const item of WINDOW_TYPES()) {
     let task = {
       top: 100,
       left: totalLeft,
