@@ -1,0 +1,20 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  background-color: #41a243;
+  color: white;
+  border-top-right-radius: 18%;
+  border-bottom-right-radius: 18%;
+  user-select: none;
+  cursor: pointer;
+  font-size: large;
+  font-style: italic;
+  font-weight: 300;
+  margin-right: 10px;
+}
+
+.clicked {
+  background-color: #198a1e;
+}

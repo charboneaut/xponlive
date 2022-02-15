@@ -1,0 +1,34 @@
+.heighted {
+  min-height: 30px;
+}
+
+.login {
+  width: 250px;
+  height: 250px;
+}
+
+.unselected {
+  background: linear-gradient(
+    180deg,
+    #84a5e4,
+    #7b97e0 8%,
+    #7b97e0 40%,
+    #7b97e0 88%,
+    #84a5e4 93%,
+    #849dd1 95%,
+    #849dd1 96%,
+    #849dd1
+  );
+  border: 1px solid #b0cdee;
+  border-bottom: 1px solid #849dd1;
+}
+
+.unselectedBorder {
+  box-shadow: inset -1px -1px #84a5e4, inset 1px 1px #7b97e0,
+    inset -2px -2px #7b97e0, inset 2px 2px #7b97e0, inset -3px -3px #7b97e0,
+    inset 3px 3px #7b97e0;
+}
+
+.selected {
+  z-index: 1;
+}
