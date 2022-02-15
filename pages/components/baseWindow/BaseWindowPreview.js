@@ -4,7 +4,7 @@ export default function BaseWindowPreview(props) {
   return (
     <div className={`window ${styles.login}`} role="DraggableBox">
       <div className={`title-bar ${styles.heighted}`}>
-        <div className="title-bar-text">{props.box.title}</div>
+        <div className="title-bar-text">{props.box ? props.box.title : ""}</div>
         <div className="title-bar-controls">
           <button aria-label="Minimize"></button>
           <button aria-label="Maximize"></button>

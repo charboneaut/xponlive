@@ -3,6 +3,9 @@ import StartButton from "./StartButton";
 import styles from "./Taskbar.module.css";
 
 export default function Taskbar(props) {
+  if (!props.tasks) {
+    return null;
+  }
   return (
     <div className={styles.taskbar}>
       <StartButton />

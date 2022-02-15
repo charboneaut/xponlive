@@ -2,6 +2,9 @@ import WINDOW_TYPES from "../../helpers/windowTypes";
 import styles from "./BaseWindow.module.css";
 
 export default function BaseWindow(props) {
+  if (!props.dnd || !props.box || !props.getStyles) {
+    return null;
+  }
   return (
     <div
       className={`window ${styles.login} ${
@@ -26,7 +29,7 @@ export default function BaseWindow(props) {
             newTasks[task].selected = false;
           }
         }
-        for (const window of WINDOW_TYPES()) {
+        for (const window of WINDOW_TYPES) {
           try {
             newWindows[window].selected = false;
           } catch (err) {

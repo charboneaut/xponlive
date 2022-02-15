@@ -40,18 +40,20 @@ export default function Container(props, { snapToGrid }) {
   );
   return (
     <div ref={drop} style={styles}>
-      {Object.keys(props.windows).map((key) => (
-        <DraggableBox
-          key={key}
-          id={key}
-          box={props.windows[key]}
-          {...props.windows[key]}
-          windows={props.windows}
-          setWindows={props.setWindows}
-          tasks={props.tasks}
-          setTasks={props.setTasks}
-        />
-      ))}
+      {props.windows
+        ? Object.keys(props.windows).map((key) => (
+            <DraggableBox
+              key={key}
+              id={key}
+              box={props.windows[key]}
+              {...props.windows[key]}
+              windows={props.windows}
+              setWindows={props.setWindows}
+              tasks={props.tasks}
+              setTasks={props.setTasks}
+            />
+          ))
+        : ""}
     </div>
   );
 }
