@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import "xp.css/dist/xp.css";
+import "xp.css/dist/XP.css";
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

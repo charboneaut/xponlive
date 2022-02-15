@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { useDrop } from "react-dnd";
-import { ItemTypes } from "./ItemTypes.js";
+import { ItemTypes } from "./Itemtypes.js";
 import { DraggableBox } from "./DraggableBox.jsx";
 import { snapToGrid as doSnapToGrid } from "./snapToGrid.js";
 import update from "immutability-helper";
