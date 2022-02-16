@@ -22,6 +22,7 @@ export default function Home() {
 
   const [windows, setWindows] = useState(demoWindows);
   const [tasks, setTasks] = useState(demoTasks);
+  const [update, setUpdate] = useState("");
 
   return (
     <div className={styles.desktop}>
@@ -36,6 +37,8 @@ export default function Home() {
         setTasks={setTasks}
         windows={windows}
         setWindows={setWindows}
+        update={update}
+        setUpdate={setUpdate}
       />
     </div>
   );

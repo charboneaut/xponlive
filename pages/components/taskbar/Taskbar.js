@@ -8,7 +8,15 @@ export default function Taskbar(props) {
   }
   return (
     <div className={styles.taskbar}>
-      <StartButton />
+      <StartButton
+        tasks={props.tasks}
+        setTasks={props.setTasks}
+        windows={props.windows}
+        setWindows={props.setWindows}
+        update={props.update}
+        setUpdate={props.setUpdate}
+      />
+      <span className={styles.hide}>{props.update}</span>
       {Object.values(props.tasks).map((task) => {
         return (
           <span
