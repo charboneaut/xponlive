@@ -32,3 +32,17 @@
 .selected {
   z-index: 1;
 }
+
+.error {
+  height: 85px;
+  width: 250px;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}

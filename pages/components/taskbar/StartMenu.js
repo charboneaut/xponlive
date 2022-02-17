@@ -29,6 +29,20 @@ export default function StartMenu(props) {
                     newWindows[_window] = task;
                     props.setWindows(newWindows);
                     props.setUpdate(props.update + 1);
+                  } else if (!props.windows["Error"]) {
+                    let newTasks = props.tasks;
+                    let task = {
+                      top: 100,
+                      left: 500,
+                      title: "Error",
+                      selected: true,
+                    };
+                    newTasks.push(task);
+                    props.setTasks(newTasks);
+                    let newWindows = props.windows;
+                    newWindows["Error"] = task;
+                    props.setWindows(newWindows);
+                    props.setUpdate(props.update + 1);
                   }
                 }}
               >

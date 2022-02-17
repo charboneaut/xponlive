@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDrag } from "react-dnd";
 import { getEmptyImage } from "react-dnd-html5-backend";
 import BaseWindow from "../baseWindow/BaseWindow.js";
+import BaseError from "../errors/BaseError.js";
 
 function getStyles(left, top, isDragging) {
   const transform = `translate3d(${left}px, ${top}px, 0)`;
@@ -38,6 +39,22 @@ export default function DraggableBox(props) {
     isDragging: isDragging,
     getStyles: getStyles,
   };
+  if (!props.box) {
+    return null;
+  }
+  if (props.box.title === "Error") {
+    return (
+      <BaseError
+        dnd={dnd}
+        windows={props.windows}
+        setWindows={props.setWindows}
+        box={props.box}
+        tasks={props.tasks}
+        setTasks={props.setTasks}
+        minBox={props.minBox}
+      />
+    );
+  }
   return (
     <BaseWindow
       dnd={dnd}

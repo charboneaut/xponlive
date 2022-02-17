@@ -41,6 +41,7 @@
 .leftCol span,
 .rightCol span {
   padding: 5px;
+  font-size: medium;
 }
 
 .rightCol {

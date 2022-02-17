@@ -7,7 +7,7 @@ export default function BaseWindow(props) {
   }
   return (
     <div
-      className={`window ${styles.login} ${
+      className={`window ${!props.err ? styles.login : styles.error} ${
         props.box.selected ? styles.selected : styles.unselectedBorder
       }`}
       style={props.dnd.getStyles(
@@ -61,17 +61,23 @@ export default function BaseWindow(props) {
         ref={props.dnd.drag}
       >
         <div className="title-bar-text">{props.box.title}</div>
+
         <div className="title-bar-controls">
-          <button
-            aria-label="Minimize"
-            onClick={() => {
-              let newWindows = props.windows;
-              delete newWindows[props.box.title];
-              props.setWindows(newWindows);
-              props.setTasks([...props.tasks, {}]);
-            }}
-          ></button>
-          <button aria-label="Maximize"></button>
+          {!props.err ? (
+            <button
+              aria-label="Minimize"
+              onClick={() => {
+                let newWindows = props.windows;
+                delete newWindows[props.box.title];
+                props.setWindows(newWindows);
+                props.setTasks([...props.tasks, {}]);
+              }}
+            ></button>
+          ) : (
+            ""
+          )}
+          {!props.err ? <button aria-label="Maximize"></button> : ""}
+
           <button
             aria-label="Close"
             onClick={() => {
@@ -86,8 +92,28 @@ export default function BaseWindow(props) {
           ></button>
         </div>
       </div>
-      <div className="window-body">
-        <p>There's so much room for activities!</p>
+      <div className={`window-body ${styles.body}`}>
+        {props.err ? (
+          <>
+            <span>{props.err}</span>
+            <button
+              className={styles.right}
+              onClick={() => {
+                let newWindows = props.windows;
+                delete newWindows[props.box.title];
+                let newTasks = props.tasks.filter((task) => {
+                  return task.title !== props.box.title;
+                });
+                props.setWindows(newWindows);
+                props.setTasks(newTasks);
+              }}
+            >
+              Close
+            </button>
+          </>
+        ) : (
+          <p>There's so much room for activities!</p>
+        )}
       </div>
     </div>
   );
