@@ -1,15 +1,36 @@
 import WINDOW_TYPES from "../../helpers/windowTypes";
+import UpdateLog from "../updateLog/UpdateLog";
 import styles from "./BaseWindow.module.css";
 
 export default function BaseWindow(props) {
   if (!props.dnd || !props.box) {
     return null;
   }
+  function decideWindow(name) {
+    switch (name) {
+      case "Update Log":
+        return (
+          <UpdateLog windows={props.windows} setWindows={props.setWindows} />
+        );
+
+      default:
+        return <p>Lookie here</p>;
+    }
+  }
+  function decideClass(name) {
+    switch (name) {
+      case "Update Log":
+        return styles.updateLog;
+
+      default:
+        return "";
+    }
+  }
   return (
     <div
       className={`window ${!props.err ? styles.login : styles.error} ${
         props.box.selected ? styles.selected : styles.unselectedBorder
-      }`}
+      } ${decideClass(props.box.title)}`}
       style={props.dnd.getStyles(
         props.dnd.left,
         props.dnd.top,
@@ -112,7 +133,7 @@ export default function BaseWindow(props) {
             </button>
           </>
         ) : (
-          <p>There's so much room for activities!</p>
+          decideWindow(props.box.title)
         )}
       </div>
     </div>

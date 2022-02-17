@@ -14,10 +14,11 @@ export default function Home() {
       left: totalLeft,
       title: item,
       selected: false,
+      data: null,
     };
     demoWindows[item] = task;
     demoTasks.push(task);
-    totalLeft += 350;
+    totalLeft += 250;
   }
 
   const [windows, setWindows] = useState(demoWindows);

@@ -1,8 +1,33 @@
+import UpdateLog from "../updateLog/UpdateLog";
 import styles from "./BaseWindow.module.css";
 
 export default function BaseWindowPreview(props) {
+  if (!props.title) {
+    return null;
+  }
+  function decideWindow(name) {
+    switch (name) {
+      case "Update Log":
+        return <UpdateLog data={props.windows["Update Log"].data} />;
+
+      default:
+        return <p>Lookie here</p>;
+    }
+  }
+  function decideClass(name) {
+    switch (name) {
+      case "Update Log":
+        return styles.updateLog;
+
+      default:
+        return "";
+    }
+  }
   return (
-    <div className={`window ${styles.login}`} role="DraggableBox">
+    <div
+      className={`window ${styles.login} ${decideClass(props.box.title)}`}
+      role="DraggableBox"
+    >
       <div className={`title-bar ${styles.heighted}`}>
         <div className="title-bar-text">{props.box ? props.box.title : ""}</div>
         <div className="title-bar-controls">
@@ -12,7 +37,7 @@ export default function BaseWindowPreview(props) {
         </div>
       </div>
       <div className={`window-body ${styles.body}`}>
-        <p>There's so much room for activities!</p>
+        {decideWindow(props.box.title)}
       </div>
     </div>
   );

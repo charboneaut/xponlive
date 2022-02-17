@@ -4,6 +4,7 @@ export default function BoxDragPreview(props) {
   if (!props.title) {
     return null;
   }
+  console.log(props);
   if (props.title.title === "Error") {
     return (
       <div>
@@ -13,7 +14,7 @@ export default function BoxDragPreview(props) {
   }
   return (
     <div>
-      <BaseWindowPreview preview box={props.title} />
+      <BaseWindowPreview preview box={props.title} windows={props.windows} />
     </div>
   );
 }

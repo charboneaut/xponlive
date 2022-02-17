@@ -1,0 +1,10 @@
+.updateLog {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.updateLog button {
+  align-self: flex-end;
+  justify-self: flex-end;
+}

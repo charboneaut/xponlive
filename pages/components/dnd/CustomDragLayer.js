@@ -47,7 +47,7 @@ export default function CustomDragLayer(props) {
       <div
         style={getItemStyles(initialOffset, currentOffset, props.snapToGrid)}
       >
-        <BoxDragPreview title={item} />
+        <BoxDragPreview title={item} windows={props.windows} />
       </div>
     </div>
   );

@@ -19,7 +19,10 @@ export default function Desktop(props) {
         tasks={props.tasks}
         setTasks={props.setTasks}
       />
-      <CustomDragLayer snapToGrid={snapToGridWhileDragging} />
+      <CustomDragLayer
+        snapToGrid={snapToGridWhileDragging}
+        windows={props.windows}
+      />
     </div>
   );
 }
