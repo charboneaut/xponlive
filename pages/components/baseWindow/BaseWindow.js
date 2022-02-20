@@ -1,31 +1,13 @@
+import decideClass from "../../helpers/decideClass";
+import decideWindow from "../../helpers/decideWindow";
 import WINDOW_TYPES from "../../helpers/windowTypes";
-import UpdateLog from "../updateLog/UpdateLog";
 import styles from "./BaseWindow.module.css";
 
 export default function BaseWindow(props) {
   if (!props.dnd || !props.box) {
     return null;
   }
-  function decideWindow(name) {
-    switch (name) {
-      case "Update Log":
-        return (
-          <UpdateLog windows={props.windows} setWindows={props.setWindows} />
-        );
 
-      default:
-        return <p>Lookie here</p>;
-    }
-  }
-  function decideClass(name) {
-    switch (name) {
-      case "Update Log":
-        return styles.updateLog;
-
-      default:
-        return "";
-    }
-  }
   return (
     <div
       className={`window ${!props.err ? styles.login : styles.error} ${
@@ -133,7 +115,7 @@ export default function BaseWindow(props) {
             </button>
           </>
         ) : (
-          decideWindow(props.box.title)
+          decideWindow(props.box.title, props)
         )}
       </div>
     </div>

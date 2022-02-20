@@ -51,3 +51,9 @@
   width: 400px;
   height: 275px;
 }
+
+.minesweeper {
+  width: 350px;
+  height: 350px;
+  background-color: #c0c0be;
+}

@@ -1,0 +1,32 @@
+.cell {
+  border: 2px #8e8b88 outset;
+  background-color: #bdbdc3;
+}
+
+.cell,
+.cellReveal {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.board {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cellReveal {
+  background-color: #c0bfc5;
+  border: 1px solid gray;
+}

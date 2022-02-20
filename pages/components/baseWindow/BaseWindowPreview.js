@@ -1,27 +1,11 @@
+import decideClass from "../../helpers/decideClass";
+import decideWindow from "../../helpers/decideWindow";
 import UpdateLog from "../updateLog/UpdateLog";
 import styles from "./BaseWindow.module.css";
 
 export default function BaseWindowPreview(props) {
   if (!props.windows) {
     return null;
-  }
-  function decideWindow(name) {
-    switch (name) {
-      case "Update Log":
-        return <UpdateLog data={props.windows["Update Log"].data} />;
-
-      default:
-        return <p>Lookie here</p>;
-    }
-  }
-  function decideClass(name) {
-    switch (name) {
-      case "Update Log":
-        return styles.updateLog;
-
-      default:
-        return "";
-    }
   }
   return (
     <div
@@ -37,7 +21,7 @@ export default function BaseWindowPreview(props) {
         </div>
       </div>
       <div className={`window-body ${styles.body}`}>
-        {decideWindow(props.box.title)}
+        {decideWindow(props.box.title, props)}
       </div>
     </div>
   );
