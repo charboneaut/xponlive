@@ -1,6 +1,5 @@
 import decideClass from "../../helpers/decideClass";
 import decideWindow from "../../helpers/decideWindow";
-import UpdateLog from "../updateLog/UpdateLog";
 import styles from "./BaseWindow.module.css";
 
 export default function BaseWindowPreview(props) {
